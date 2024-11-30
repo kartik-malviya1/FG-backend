@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteAllChats = exports.getChat = exports.updateChatTitle = exports.getUserChats = exports.addChat = void 0;
 const chat_model_1 = __importDefault(require("../models/chat.model"));
 const book_model_1 = __importDefault(require("../models/book.model"));
-const geminiService_1 = require("services/geminiService");
+const geminiService_1 = require("../services/geminiService");
 // Add a new chat message
 const addChat = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {

@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
 import ChatHistory from '../models/chat.model';
 import Book from '../models/book.model';
-import { geminiService } from 'services/geminiService';
-
+import { geminiService } from '../services/geminiService';
 // Add a new chat message
 export const addChat = async (req: Request, res: Response) => {
   try {
