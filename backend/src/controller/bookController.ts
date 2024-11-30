@@ -47,19 +47,21 @@ export const getBooks = async (req: Request, res: Response) => {
   }
 };
 
-export const deleteBook = async (req: Request, res: Response) => {
+export const deleteBook = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
     
     // Check if ID exists
     if (!id) {
-      return res.status(400).json({ message: 'Book ID is required' });
+      res.status(400).json({ message: 'Book ID is required' });
+      return;
     }
 
     // Check if book exists before deleting
     const book = await Book.findById(id);
     if (!book) {
-      return res.status(404).json({ message: 'Book not found' });
+      res.status(404).json({ message: 'Book not found' });
+      return;
     }
 
     await Book.findByIdAndDelete(id);
@@ -72,6 +74,7 @@ export const deleteBook = async (req: Request, res: Response) => {
     });
   }
 };
+
 
 export const updateBook = async (req: Request, res: Response): Promise<void> => {
   try {
