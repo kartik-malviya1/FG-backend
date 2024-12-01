@@ -11,7 +11,12 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: ['https://foundrguide.vercel.app'], // Replace with your Vercel frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true, // Allow cookies if needed
+};
+app.use(cors(corsOptions));
 app.use(helmet());
 app.use(express.json());
 
